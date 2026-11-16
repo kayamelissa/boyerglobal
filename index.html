@@ -1643,9 +1643,9 @@ input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:var(--acce
       </div>
 
       <div class="rv pending">
-        <form class="form" id="leadForm" name="on-gorusme" method="post" action="/" data-netlify="true" netlify-honeypot="website" novalidate>
-          <!-- Netlify Forms ile gönderilir; talepler Netlify panelinde Forms bölümünde görünür -->
-          <input type="hidden" name="form-name" value="on-gorusme">
+        <form class="form" id="leadForm" name="on-gorusme" method="post" action="https://formspree.io/f/xrpqpjrd" novalidate>
+          <!-- Formspree ile gönderilir; talepler info@boyerglobal.com adresine ve Formspree paneline düşer -->
+          <input type="hidden" name="_subject" value="Yeni ön görüşme talebi (boyerglobal.com)">
           <label class="hp" aria-hidden="true">Web sitesi<input name="website" tabindex="-1" autocomplete="off"></label>
           <div class="f2">
             <label><span data-en="Full name">Ad Soyad</span><input name="name" autocomplete="name" required aria-required="true"></label>
@@ -1774,7 +1774,7 @@ BG.config = {
   /* Form gönderim adresi. Formspree, Getform, Basin veya kendi sunucunuz olabilir.
      Örn. 'https://formspree.io/f/abcdwxyz'. Boş bırakılırsa form, ziyaretçinin
      e-posta uygulamasını yukarıdaki adrese doldurulmuş bir mesajla açar. */
-  formEndpoint: '/',
+  formEndpoint: 'https://formspree.io/f/xrpqpjrd',
 
   /* Varsayılan dil ve kullanıcının seçimini hatırlama */
   defaultLang: 'tr',
@@ -2338,7 +2338,7 @@ BG.passport = [
       var first = name.value.trim().split(/\s+/)[0];
       if (CFG.formEndpoint) {
         btn.disabled = true;
-        fetch(CFG.formEndpoint, { method: 'POST', body: new URLSearchParams(new FormData(f)).toString(), headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
+        fetch(CFG.formEndpoint, { method: 'POST', body: new URLSearchParams(new FormData(f)).toString(), headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' } })
           .then(function (r) {
             if (!r.ok) throw new Error(r.status);
             say(T(first + ', talebiniz alındı. İş günlerinde 24 saat içinde Türkçe dönüş yapacağız.',

@@ -1646,27 +1646,30 @@ input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:var(--acce
         <form class="form" id="leadForm" name="on-gorusme" method="post" action="https://formspree.io/f/xrpqpjrd" novalidate>
           <!-- Formspree ile gönderilir; talepler info@boyerglobal.com adresine ve Formspree paneline düşer -->
           <input type="hidden" name="_subject" value="Yeni ön görüşme talebi (boyerglobal.com)">
-          <label class="hp" aria-hidden="true">Web sitesi<input name="website" tabindex="-1" autocomplete="off"></label>
+          <label class="hp" aria-hidden="true">Web sitesi<input name="_gotcha" tabindex="-1" autocomplete="off"></label>
           <div class="f2">
-            <label><span data-en="Full name">Ad Soyad</span><input name="name" autocomplete="name" required aria-required="true"></label>
-            <label><span data-en="Phone (with country code)">Telefon (ülke kodu ile)</span><input name="phone" type="tel" inputmode="tel" placeholder="+90 5.. / +1 ..." autocomplete="tel"></label>
+            <label><span data-en="First name">Ad</span><input name="Ad" autocomplete="given-name" required aria-required="true"></label>
+            <label><span data-en="Last name">Soyad</span><input name="Soyad" autocomplete="family-name" required aria-required="true"></label>
           </div>
-          <label><span data-en="Email">E-posta</span><input name="email" type="email" autocomplete="email" required aria-required="true"></label>
+          <div class="f2">
+            <label><span data-en="Phone (with country code)">Telefon (ülke kodu ile)</span><input name="Telefon" type="tel" inputmode="tel" placeholder="+90 5.. / +1 ..." autocomplete="tel"></label>
+            <label><span data-en="Email">E-posta</span><input name="E-posta" type="email" autocomplete="email" required aria-required="true"></label>
+          </div>
           <label><span data-en="Subject">Konu</span>
-            <select name="topic">
-              <option data-en="E-2 / E-1 investor or trader visa">E-2 / E-1 yatırımcı veya tüccar vizesi</option>
-              <option data-en="EB-5 investor green card">EB-5 yatırımcı yeşil kartı</option>
-              <option data-en="L-1 intracompany transfer">L-1 şirket içi transfer</option>
-              <option data-en="Work visa (H-1B, O-1, NIW)">Çalışma vizesi (H-1B, O-1, NIW)</option>
-              <option data-en="Family / green card / citizenship">Aile / yeşil kart / vatandaşlık</option>
-              <option data-en="Student or visitor visa">Öğrenci veya ziyaretçi vizesi</option>
-              <option data-en="Document, translation or apostille support">Belge, çeviri veya apostil desteği</option>
-              <option data-en="Other">Diğer</option>
+            <select name="Konu">
+              <option data-en="E-2 / E-1 investor or trader visa" value="E-2 / E-1 yatırımcı veya tüccar vizesi">E-2 / E-1 yatırımcı veya tüccar vizesi</option>
+              <option data-en="EB-5 investor green card" value="EB-5 yatırımcı yeşil kartı">EB-5 yatırımcı yeşil kartı</option>
+              <option data-en="L-1 intracompany transfer" value="L-1 şirket içi transfer">L-1 şirket içi transfer</option>
+              <option data-en="Work visa (H-1B, O-1, NIW)" value="Çalışma vizesi (H-1B, O-1, NIW)">Çalışma vizesi (H-1B, O-1, NIW)</option>
+              <option data-en="Family / green card / citizenship" value="Aile / yeşil kart / vatandaşlık">Aile / yeşil kart / vatandaşlık</option>
+              <option data-en="Student or visitor visa" value="Öğrenci veya ziyaretçi vizesi">Öğrenci veya ziyaretçi vizesi</option>
+              <option data-en="Document, translation or apostille support" value="Belge, çeviri veya apostil desteği">Belge, çeviri veya apostil desteği</option>
+              <option data-en="Other" value="Diğer">Diğer</option>
             </select>
           </label>
-          <label><span data-en="Briefly describe the matter">Konunuzu kısaca açıklayın</span><textarea name="msg" placeholder="Birkaç cümle yeterlidir." data-en-placeholder="A few sentences are enough."></textarea></label>
+          <label><span data-en="Briefly describe the matter">Konunuzu kısaca açıklayın</span><textarea name="Mesaj" placeholder="Birkaç cümle yeterlidir." data-en-placeholder="A few sentences are enough."></textarea></label>
           <label class="consent">
-            <input type="checkbox" name="sms">
+            <input type="checkbox" name="SMS izni" value="Evet">
             <span data-en="By providing my phone number I agree that BOYER LAW FIRM, P.L. may send text messages to my mobile number for appointment confirmations and reminders. Message and data rates may apply; you can opt out at any time.">Telefon numaramı vererek, BOYER LAW FIRM, P.L.'nin randevu teyidi ve hatırlatma amacıyla cep telefonuma kısa mesaj göndermesini kabul ediyorum. Operatörünüzün mesaj ve veri ücretleri uygulanabilir; onayınızı dilediğiniz zaman iptal edebilirsiniz.</span>
           </label>
           <button class="btn btn--primary" type="submit" data-en="Request the Free Initial Call">Ücretsiz Ön Görüşme Talep Et</button>
@@ -2255,8 +2258,8 @@ BG.passport = [
         var a1 = el('a', 'btn btn--gold', L === 'tr' ? 'Bu sonucu ücretsiz görüşmede konuşalım' : 'Discuss this on a free call');
         a1.href = '#contact';
         a1.addEventListener('click', function () {
-          var topic = $('#leadForm select[name="topic"]');
-          var msg = $('#leadForm textarea[name="msg"]');
+          var topic = $('#leadForm select[name="Konu"]');
+          var msg = $('#leadForm textarea[name="Mesaj"]');
           if (msg && !msg.value) msg.value = (L === 'tr' ? 'Eşleştirici sonucu: ' : 'Matcher result: ') + r.title[L];
           if (topic) topic.focus({ preventScroll: true });
         });
@@ -2320,25 +2323,31 @@ BG.passport = [
 
     f.addEventListener('submit', function (e) {
       e.preventDefault();
-      var name = f.elements.name, email = f.elements.email;
+      var name = f.elements['Ad'], last = f.elements['Soyad'], email = f.elements['E-posta'];
       var bad = [];
       if (!name.value.trim()) bad.push(name);
+      if (!last.value.trim()) bad.push(last);
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) bad.push(email);
       bad.forEach(function (i) { i.setAttribute('aria-invalid', 'true'); });
       if (bad.length) {
         bad[0].focus();
-        say(T('Lütfen adınızı ve geçerli bir e-posta adresi yazın.', 'Please enter your name and a valid email address.'), true);
+        say(T('Lütfen adınızı, soyadınızı ve geçerli bir e-posta adresi yazın.', 'Please enter your first name, last name and a valid email address.'), true);
         return;
       }
       /* bot tuzağı: görünmez alan doluysa sessizce "başarılı" de */
-      if (f.elements.website && f.elements.website.value) {
+      if (f.elements._gotcha && f.elements._gotcha.value) {
         say(T('Teşekkürler.', 'Thank you.')); f.reset(); return;
       }
 
       var first = name.value.trim().split(/\s+/)[0];
       if (CFG.formEndpoint) {
         btn.disabled = true;
-        fetch(CFG.formEndpoint, { method: 'POST', body: new URLSearchParams(new FormData(f)).toString(), headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' } })
+        var fd = new FormData(f);
+        var konu = f.elements['Konu'];
+        fd.set('_subject', 'Ön görüşme talebi: ' + name.value.trim() + ' ' + last.value.trim() + (konu ? ' — ' + konu.value : ''));
+        fd.set('_replyto', email.value.trim());
+        if (!fd.has('SMS izni')) fd.set('SMS izni', 'Hayır');
+        fetch(CFG.formEndpoint, { method: 'POST', body: new URLSearchParams(fd).toString(), headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' } })
           .then(function (r) {
             if (!r.ok) throw new Error(r.status);
             say(T(first + ', talebiniz alındı. İş günlerinde 24 saat içinde Türkçe dönüş yapacağız.',
@@ -2351,14 +2360,14 @@ BG.passport = [
           })
           .then(function () { btn.disabled = false; });
       } else {
-        var sel = f.elements.topic;
+        var sel = f.elements['Konu'];
         var subject = T('Ön görüşme talebi', 'Initial consultation request') + ' — ' + (sel ? sel.options[sel.selectedIndex].text : '');
         var lines = [
-          T('Ad Soyad', 'Name') + ': ' + name.value.trim(),
-          T('Telefon', 'Phone') + ': ' + (f.elements.phone.value || '-'),
+          T('Ad Soyad', 'Name') + ': ' + name.value.trim() + ' ' + last.value.trim(),
+          T('Telefon', 'Phone') + ': ' + (f.elements['Telefon'].value || '-'),
           T('E-posta', 'Email') + ': ' + email.value.trim(),
           '',
-          f.elements.msg.value || ''
+          f.elements['Mesaj'].value || ''
         ];
         window.location.href = 'mailto:' + (CFG.email || '') + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
         say(T(first + ', e-posta uygulamanız açıldı. Mesajı gönderdiğinizde talebiniz bize ulaşır.',

@@ -1,0 +1,5 @@
+# Tüm arama motorlarına izin ver
+User-agent: *
+Allow: /
+
+Sitemap: https://boyerglobal.com/sitemap.xml

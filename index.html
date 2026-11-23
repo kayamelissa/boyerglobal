@@ -1671,6 +1671,10 @@ input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:var(--acce
           </label>
           <label><span data-en="Briefly describe the matter">Konunuzu kısaca açıklayın</span><textarea name="msg" placeholder="Birkaç cümle yeterlidir." data-en-placeholder="A few sentences are enough."></textarea></label>
           <label class="consent">
+            <input type="checkbox" name="yurtdisi" required aria-required="true">
+            <span data-en="I give my explicit consent to my details being transferred to the form service provider in the US so that my request can be delivered.">Talebimin iletilebilmesi için bilgilerimin ABD'deki form hizmet sağlayıcısına aktarılmasına açık rıza veriyorum.</span>
+          </label>
+          <label class="consent">
             <input type="checkbox" name="ticari">
             <span data-en="I consent to receiving commercial electronic messages (campaigns and announcements). (optional)">Kampanya ve duyurular için ticari elektronik ileti almayı kabul ediyorum. (isteğe bağlı)</span>
           </label>
@@ -2305,6 +2309,14 @@ BG.passport = [
         say(T('Lütfen adınızı ve geçerli bir e-posta adresi yazın.', 'Please enter your name and a valid email address.'), true);
         return;
       }
+      var yd = f.elements.yurtdisi;
+      if (yd && !yd.checked) {
+        yd.setAttribute('aria-invalid', 'true');
+        yd.focus();
+        say(T('Form ile gönderim için bu onay gereklidir. Dilerseniz bize ' + (CFG.email || 'e-posta') + ' adresinden veya telefonla da ulaşabilirsiniz.',
+              'This consent is required to send the form. You can also reach us at ' + (CFG.email || 'our email') + ' or by phone.'), true);
+        return;
+      }
       /* bot tuzağı: görünmez alan doluysa sessizce "başarılı" de */
       if (f.elements.website && f.elements.website.value) {
         say(T('Teşekkürler.', 'Thank you.')); f.reset(); return;
@@ -2328,6 +2340,7 @@ BG.passport = [
         payload.set('E-posta', email.value.trim());
         payload.set('Konu', konu || '-');
         payload.set('Mesaj', f.elements.msg.value.trim() || '-');
+        payload.set('Yurt dışı aktarım açık rızası', 'Evet');
         payload.set('Ticari ileti izni', f.elements.ticari && f.elements.ticari.checked ? 'Evet' : 'Hayır');
         fetch(CFG.formEndpoint, { method: 'POST', body: payload.toString(), headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' } })
           .then(function (r) {

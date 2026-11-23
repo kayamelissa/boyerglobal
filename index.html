@@ -1670,7 +1670,15 @@ input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:var(--acce
             </select>
           </label>
           <label><span data-en="Briefly describe the matter">Konunuzu kısaca açıklayın</span><textarea name="msg" placeholder="Birkaç cümle yeterlidir." data-en-placeholder="A few sentences are enough."></textarea></label>
-          <p class="tiny" data-en="Your details are processed only to respond to your request.">Bilgileriniz yalnızca talebinize dönüş yapmak amacıyla işlenir.</p>
+          <p class="tiny" data-en-html="Your details are processed only to respond to your request. For details see the &lt;a class=&quot;link&quot; href=&quot;kvkk.html&quot;&gt;KVKK Information Notice&lt;/a&gt; and the &lt;a class=&quot;link&quot; href=&quot;cerez-politikasi.html&quot;&gt;Cookie Policy&lt;/a&gt;.">Bilgileriniz yalnızca talebinize dönüş yapmak amacıyla işlenir. Ayrıntılar için <a class="link" href="kvkk.html">KVKK Aydınlatma Metni</a> ve <a class="link" href="cerez-politikasi.html">Çerez Politikası</a>'na bakabilirsiniz.</p>
+          <label class="consent">
+            <input type="checkbox" name="kvkk" required aria-required="true">
+            <span data-en="I have read the KVKK Information Notice. (required)">KVKK Aydınlatma Metni'ni okudum. (zorunlu)</span>
+          </label>
+          <label class="consent">
+            <input type="checkbox" name="yurtdisi" required aria-required="true">
+            <span data-en="I give my explicit consent to my details being transferred to the form service provider in the US (Formspree) so that my request can be delivered. (required to send via the form; you can also reach us by email or phone)">Talebimin iletilebilmesi için bilgilerimin ABD'deki form hizmet sağlayıcısına (Formspree) aktarılmasına açık rıza veriyorum. (form ile gönderim için zorunlu; dilerseniz bize e-posta veya telefonla da ulaşabilirsiniz)</span>
+          </label>
           <label class="consent">
             <input type="checkbox" name="sms">
             <span data-en="I would like to receive appointment and service updates.">Randevu ve hizmet bilgilendirmelerini almak istiyorum.</span>
@@ -1740,6 +1748,7 @@ input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:var(--acce
       </div>
     </div>
     <div class="legal">
+      <span><a href="kvkk.html" data-en="KVKK Information Notice">KVKK Aydınlatma Metni</a> · <a href="cerez-politikasi.html" data-en="Cookie Policy">Çerez Politikası</a></span>
       <span>© <span id="year">2026</span> Boyer Global · <span data-en="Last updated: 23 November 2026">Son güncelleme: 23 Kasım 2026</span></span>
       <span class="disclaimer" data-en="Boyer Global is not an official representative of the US government, the US Department of State, USCIS or any consulate. The services offered consist of general information and administrative support. No visa, residence permit or application outcome is guaranteed. Authority over official applications and decisions rests with the relevant government authorities. The content of this site is not personalised legal advice.">Boyer Global, ABD hükümetinin, ABD Dışişleri Bakanlığının, USCIS'in veya herhangi bir konsolosluğun resmi temsilcisi değildir. Sunulan hizmetler genel bilgilendirme ve idari destek kapsamındadır. Vize, oturum izni veya başvuru sonucu garanti edilmez. Resmi başvuru ve karar yetkisi ilgili devlet makamlarına aittir. Bu sitedeki içerikler kişiye özel hukuki görüş niteliğinde değildir.</span>
     </div>
@@ -2313,7 +2322,15 @@ BG.passport = [
       if (kvkk && !kvkk.checked) {
         kvkk.setAttribute('aria-invalid', 'true');
         kvkk.focus();
-        say(T('Lütfen Gizlilik Politikası ve KVKK Aydınlatma Metni onay kutusunu işaretleyin.', 'Please tick the Privacy Policy and KVKK Information Notice box.'), true);
+        say(T('Lütfen KVKK Aydınlatma Metni kutusunu işaretleyin.', 'Please tick the KVKK Information Notice box.'), true);
+        return;
+      }
+      var yd = f.elements.yurtdisi;
+      if (yd && !yd.checked) {
+        yd.setAttribute('aria-invalid', 'true');
+        yd.focus();
+        say(T('Form ile gönderim için yurt dışı aktarım onayı gerekir. Onay vermek istemezseniz bize ' + (CFG.email || 'e-posta') + ' adresinden veya telefonla ulaşabilirsiniz.',
+              'Sending via the form requires the transfer consent. If you prefer not to give it, contact us at ' + (CFG.email || 'our email') + ' or by phone.'), true);
         return;
       }
       /* bot tuzağı: görünmez alan doluysa sessizce "başarılı" de */
@@ -2339,6 +2356,8 @@ BG.passport = [
         payload.set('E-posta', email.value.trim());
         payload.set('Konu', konu || '-');
         payload.set('Mesaj', f.elements.msg.value.trim() || '-');
+        payload.set('KVKK aydınlatma', 'Okundu');
+        payload.set('Yurt dışı aktarım açık rızası', 'Evet');
         payload.set('Randevu/hizmet bilgilendirme izni', f.elements.sms && f.elements.sms.checked ? 'Evet' : 'Hayır');
         payload.set('Ticari ileti izni', f.elements.ticari && f.elements.ticari.checked ? 'Evet' : 'Hayır');
         fetch(CFG.formEndpoint, { method: 'POST', body: payload.toString(), headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' } })

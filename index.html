@@ -1676,14 +1676,6 @@ input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:var(--acce
             <span data-en="I have read the KVKK Information Notice. (required)">KVKK Aydınlatma Metni'ni okudum. (zorunlu)</span>
           </label>
           <label class="consent">
-            <input type="checkbox" name="yurtdisi" required aria-required="true">
-            <span data-en="I give my explicit consent to my details being transferred to the form service provider in the US (Formspree) so that my request can be delivered. (required to send via the form; you can also reach us by email or phone)">Talebimin iletilebilmesi için bilgilerimin ABD'deki form hizmet sağlayıcısına (Formspree) aktarılmasına açık rıza veriyorum. (form ile gönderim için zorunlu; dilerseniz bize e-posta veya telefonla da ulaşabilirsiniz)</span>
-          </label>
-          <label class="consent">
-            <input type="checkbox" name="sms">
-            <span data-en="I would like to receive appointment and service updates.">Randevu ve hizmet bilgilendirmelerini almak istiyorum.</span>
-          </label>
-          <label class="consent">
             <input type="checkbox" name="ticari">
             <span data-en="I consent to receiving commercial electronic messages (campaigns and announcements). (optional)">Kampanya ve duyurular için ticari elektronik ileti almayı kabul ediyorum. (isteğe bağlı)</span>
           </label>
@@ -2325,14 +2317,6 @@ BG.passport = [
         say(T('Lütfen KVKK Aydınlatma Metni kutusunu işaretleyin.', 'Please tick the KVKK Information Notice box.'), true);
         return;
       }
-      var yd = f.elements.yurtdisi;
-      if (yd && !yd.checked) {
-        yd.setAttribute('aria-invalid', 'true');
-        yd.focus();
-        say(T('Form ile gönderim için yurt dışı aktarım onayı gerekir. Onay vermek istemezseniz bize ' + (CFG.email || 'e-posta') + ' adresinden veya telefonla ulaşabilirsiniz.',
-              'Sending via the form requires the transfer consent. If you prefer not to give it, contact us at ' + (CFG.email || 'our email') + ' or by phone.'), true);
-        return;
-      }
       /* bot tuzağı: görünmez alan doluysa sessizce "başarılı" de */
       if (f.elements.website && f.elements.website.value) {
         say(T('Teşekkürler.', 'Thank you.')); f.reset(); return;
@@ -2357,8 +2341,6 @@ BG.passport = [
         payload.set('Konu', konu || '-');
         payload.set('Mesaj', f.elements.msg.value.trim() || '-');
         payload.set('KVKK aydınlatma', 'Okundu');
-        payload.set('Yurt dışı aktarım açık rızası', 'Evet');
-        payload.set('Randevu/hizmet bilgilendirme izni', f.elements.sms && f.elements.sms.checked ? 'Evet' : 'Hayır');
         payload.set('Ticari ileti izni', f.elements.ticari && f.elements.ticari.checked ? 'Evet' : 'Hayır');
         fetch(CFG.formEndpoint, { method: 'POST', body: payload.toString(), headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' } })
           .then(function (r) {

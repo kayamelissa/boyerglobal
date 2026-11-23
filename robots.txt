@@ -1,4 +1,4 @@
-# Tüm arama motorlarına izin ver
+# Tüm arama motorlarına ve yapay zekâ arama botlarına izin ver
 User-agent: *
 Allow: /
 

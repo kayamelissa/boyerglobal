@@ -835,7 +835,7 @@ input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:var(--acce
 <!-- =====================================================================
      YAPISAL VERİ (schema.org) — Google'ın firmayı, avukatı ve ofisleri
      tanıması için. Telefon/adres değişirse burayı da güncelleyin.
-     (SSS için FAQPage verisi js/main.js tarafından sayfadaki sorulardan üretilir.)
+     (SSS için FAQPage verisi bu bloğun sonundadır; SSS metni değişirse burayı da güncelleyin.)
      ===================================================================== -->
 <script type="application/ld+json">
 {
@@ -847,7 +847,9 @@ input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:var(--acce
       "url": "https://boyerglobal.com/",
       "name": "Boyer Global",
       "inLanguage": "tr-TR",
-      "publisher": { "@id": "https://boyerglobal.com/#org" }
+      "publisher": {
+        "@id": "https://boyerglobal.com/#org"
+      }
     },
     {
       "@type": "WebPage",
@@ -856,39 +858,220 @@ input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:var(--acce
       "name": "ABD Vize Süreçleri Hakkında Bilgilendirme | Boyer Global",
       "description": "Boyer Global ile ABD vize süreçlerine ilişkin genel bilgiler, belge organizasyonu, çeviri koordinasyonu ve Türkçe idari destek hizmetlerini inceleyin.",
       "inLanguage": "tr-TR",
-      "isPartOf": { "@id": "https://boyerglobal.com/#website" },
-      "about": { "@id": "https://boyerglobal.com/#org" },
-      "primaryImageOfPage": "https://boyerglobal.com/images/og-image.jpg"
+      "isPartOf": {
+        "@id": "https://boyerglobal.com/#website"
+      },
+      "about": {
+        "@id": "https://boyerglobal.com/#org"
+      },
+      "primaryImageOfPage": "https://boyerglobal.com/images/og-image.jpg",
+      "dateModified": "2026-11-23",
+      "mainEntity": {
+        "@id": "https://boyerglobal.com/#faq"
+      }
     },
     {
       "@type": "ProfessionalService",
       "@id": "https://boyerglobal.com/#org",
       "name": "Boyer Global",
-      "alternateName": "Boyer Global Destek Hizmetleri",
+      "alternateName": [
+        "Boyer Global Destek Hizmetleri",
+        "Boyer Global İstanbul"
+      ],
+      "disambiguatingDescription": "İstanbul Nişantaşı merkezli; ABD vize süreçleri hakkında Türkçe genel bilgilendirme ve idari destek (belge organizasyonu, çeviri koordinasyonu, apostil bilgilendirmesi) sunar. Hukuk bürosu veya resmi makam değildir.",
       "description": "ABD vize süreçlerine ilişkin genel bilgilendirme, belge organizasyonu, çeviri koordinasyonu ve Türkçe idari destek. Resmi bir ABD devlet kurumu değildir.",
       "url": "https://boyerglobal.com/",
       "image": "https://boyerglobal.com/images/og-image.jpg",
       "logo": "https://boyerglobal.com/images/boyer-global-mark.png",
       "email": "info@boyerglobal.com",
-      "sameAs": ["https://instagram.com/boyer.global", "https://x.com/boyer_global", "https://www.tiktok.com/@boyerglobal"],
+      "sameAs": [
+        "https://instagram.com/boyer.global",
+        "https://x.com/boyer_global",
+        "https://www.tiktok.com/@boyerglobal"
+      ],
       "telephone": "+90 212 373 94 26",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Harbiye Mah. Abdi İpekçi, Bostan Sk. No: 15/5",
+        "streetAddress": "Harbiye Mah. Abdi İpekçi Cad. Bostan Sk. Orjin Apt. No: 15/5, Nişantaşı",
         "addressLocality": "Şişli",
         "addressRegion": "İstanbul",
         "postalCode": "34367",
         "addressCountry": "TR"
       },
       "areaServed": [
-        { "@type": "Country", "name": "Türkiye" },
-        { "@type": "Country", "name": "United States" }
+        {
+          "@type": "Country",
+          "name": "Türkiye"
+        },
+        {
+          "@type": "Country",
+          "name": "United States"
+        }
       ],
-      "availableLanguage": ["Turkish", "English", "French", "Spanish"],
-      "knowsAbout": ["E-2 yatırımcı vizesi", "E-1 tüccar vizesi", "EB-5 yatırımcı yeşil kartı", "L-1 şirket içi transfer", "H-1B", "O-1", "EB-1A", "EB-2 NIW", "Aileye dayalı göçmenlik (I-130)", "Statü değişikliği (I-485)", "K-1 nişanlı vizesi", "N-400 vatandaşlık", "B-1/B-2 vizesi", "F-1 öğrenci vizesi", "J-1 vizesi", "Apostil", "Tasdikli çeviri"],
+      "availableLanguage": [
+        "Turkish",
+        "English",
+        "French",
+        "Spanish"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "İdari destek hizmetleri",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Belge organizasyonu ve genel kontrol listeleri"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Çeviri hizmetleri koordinasyonu"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Apostil prosedürleri hakkında bilgilendirme ve işlem koordinasyonu"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Resmi randevu sistemleri hakkında genel bilgilendirme"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Konsolosluk mülakat süreci hakkında genel bilgilendirme"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Türkçe iletişim ve idari süreç bilgilendirmesi"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Şirket kuruluş süreçlerine ilişkin genel operasyonel bilgilendirme"
+            }
+          }
+        ]
+      },
+      "knowsAbout": [
+        "E-2 yatırımcı vizesi",
+        "E-1 tüccar vizesi",
+        "EB-5 yatırımcı yeşil kartı",
+        "L-1 şirket içi transfer",
+        "H-1B",
+        "O-1",
+        "EB-1A",
+        "EB-2 NIW",
+        "Aileye dayalı göçmenlik (I-130)",
+        "Statü değişikliği (I-485)",
+        "K-1 nişanlı vizesi",
+        "N-400 vatandaşlık",
+        "B-1/B-2 vizesi",
+        "F-1 öğrenci vizesi",
+        "J-1 vizesi",
+        "Apostil",
+        "Tasdikli çeviri"
+      ],
       "contactPoint": [
-        { "@type": "ContactPoint", "telephone": "+90-212-373-9426", "contactType": "customer service", "areaServed": "TR", "availableLanguage": ["Turkish", "English"] },
-        { "@type": "ContactPoint", "telephone": "+1-904-236-5317", "contactType": "customer service", "areaServed": "US", "availableLanguage": ["Turkish", "English"] }
+        {
+          "@type": "ContactPoint",
+          "telephone": "+90-212-373-9426",
+          "contactType": "customer service",
+          "areaServed": "TR",
+          "availableLanguage": [
+            "Turkish",
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+1-904-236-5317",
+          "contactType": "customer service",
+          "areaServed": "US",
+          "availableLanguage": [
+            "Turkish",
+            "English"
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://boyerglobal.com/#faq",
+      "inLanguage": "tr-TR",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Türk vatandaşları E-2 yatırımcı vizesine başvurabilir mi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Evet. Türkiye, ABD ile ticaret ve yatırım anlaşması bulunan ülkelerdendir; bu nedenle Türk vatandaşları E-2 vizesine başvurabilir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Türk vatandaşları Amerika'ya ESTA ile gidebilir mi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Türkiye, ESTA kapsamında seyahate imkân veren Vize Muafiyeti Programı üyesi değildir. Bununla birlikte, geçerli çok girişli ABD vizesi bulunan kişiler vizenin geçerliliği ve kabul şartları dahilinde tekrar kullanabilir. Kısa süreli iş görüşmesi, fuar, ziyaret ve tedavi için genellikle B-1/B-2 vizesine başvurulur."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "E-2 ile EB-5 arasındaki fark nedir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "E-2 göçmen olmayan bir statüdür, yeşil kart değildir; koşulların devamı ve ilgili makamların onayı çerçevesinde uzatılabilir, ancak yenileme otomatik veya garantili değildir. EB-5, koşulların sağlanmasına ve resmi değerlendirmeye bağlı bir yatırımcı göçmenlik yoludur; ilk aşamada şartlı daimi ikamet söz konusu olabilir. Kanunla belirlenmiş asgari yatırım tutarı gerektirir ve süreç genelde daha uzundur."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Bilgilendirme görüşmesi nasıl işliyor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Görüşmede, talep ettiğiniz idari destek hizmeti, hizmet kapsamı ve iletişim süreci hakkında Türkçe bilgi verilir. Kişiye özel hukuki değerlendirme yapılmaz. Talebinize iş günlerinde 24 saat içinde dönüş yapılır."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Belgelerimi Türkçe gönderebilir miyim?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Evet. Türkçe belgeleriniz için çeviri koordinasyonunu destekler, gerektiğinde apostil prosedürü hakkında bilgi veririz."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Görüşme için Amerika'ya gelmem gerekir mi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır. Telefon, WhatsApp veya görüntülü görüşme yapabilir ya da İstanbul Nişantaşı'ndaki ofisimizde randevuyla yüz yüze görüşebilirsiniz. Konsolosluk mülakatı genelde İstanbul veya Ankara'da yapılır."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ABD vatandaşı olursam Türk vatandaşlığından çıkmam gerekir mi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır. Türk vatandaşlığından çıkmanız gerekmez; çifte vatandaşlık mümkündür. Genel kural olarak beş yıl (ABD vatandaşı eşle üç yıl) yeşil kart sahibi olduktan sonra N-400 ile vatandaşlığa başvurulur."
+          }
+        }
       ]
     }
   ]
@@ -987,7 +1170,7 @@ input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:var(--acce
             <div class="plaque-face">
               <p class="plaque-s">BOYER GLOBAL</p>
               <p class="plaque-t">İstanbul</p>
-              <p class="plaque-a">Harbiye Mah. Abdi İpekçi, Bostan Sk. No: 15/5<br>34367 Nişantaşı, Şişli</p>
+              <p class="plaque-a">Harbiye Mah. Abdi İpekçi Cad. Bostan Sk. Orjin Apt. No: 15/5<br>34367 Nişantaşı, Şişli / İstanbul</p>
               <p class="plaque-a"><a href="tel:+902123739426">+90 212 373 94 26</a> &nbsp;·&nbsp; <span data-en="by appointment">randevu ile</span></p>
             </div>
             <div class="plaque-sheen" id="plaqueSheen"></div>
@@ -1343,7 +1526,7 @@ input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:var(--acce
       <div class="office is-hq">
         <p class="flagline" data-en="TURKEY · BY APPOINTMENT">TÜRKİYE · RANDEVU İLE</p>
         <h3 class="t4">İstanbul</h3>
-        <address class="tiny">Harbiye Mah. Abdi İpekçi, Bostan Sk. No: 15/5<br>34367 Nişantaşı, Şişli / İstanbul</address>
+        <address class="tiny">Harbiye Mah. Abdi İpekçi Cad. Bostan Sk. Orjin Apt. No: 15/5<br>34367 Nişantaşı, Şişli / İstanbul</address>
         <p class="office-tel"><a href="tel:+902123739426">+90 212 373 94 26</a></p>
       </div>
       <div class="office">
@@ -1450,6 +1633,7 @@ input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:var(--acce
         <h2 data-en="Information call request">Bilgilendirme Görüşmesi Talebi</h2>
         <p class="lede" data-en="Once your request is received, we will contact you to share information in Turkish about our administrative consultancy services. No legal opinion or official application assessment is provided through this form.">Talebiniz alındıktan sonra idari danışmanlık hizmetlerimiz hakkında Türkçe bilgi paylaşmak amacıyla sizinle iletişime geçilir. Bu form aracılığıyla hukuki görüş veya resmi başvuru değerlendirmesi sunulmaz.</p>
         <dl class="dl">
+          <div><dt data-en="Istanbul address">İstanbul adresi</dt><dd><address style="font-style:normal">Harbiye Mah. Abdi İpekçi Cad. Bostan Sk. Orjin Apt. No: 15/5, 34367 Nişantaşı, Şişli / İstanbul</address><span class="tiny" data-en="By appointment">Randevu ile</span></dd></div>
           <div><dt data-en="Email">E-posta</dt><dd><a href="mailto:info@boyerglobal.com" class="link">info@boyerglobal.com</a></dd></div>
           <div><dt data-en="Turkey">Türkiye</dt><dd><a href="tel:+902123739426" class="link">+90 212 373 94 26</a></dd></div>
           <div><dt data-en="United States">ABD</dt><dd><a href="tel:+19042365317" class="link">+1 904 236 5317</a></dd></div>
@@ -1556,7 +1740,7 @@ input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:var(--acce
       </div>
     </div>
     <div class="legal">
-      <span>© <span id="year">2026</span> Boyer Global</span>
+      <span>© <span id="year">2026</span> Boyer Global · <span data-en="Last updated: 23 November 2026">Son güncelleme: 23 Kasım 2026</span></span>
       <span class="disclaimer" data-en="Boyer Global is not an official representative of the US government, the US Department of State, USCIS or any consulate. The services offered consist of general information and administrative support. No visa, residence permit or application outcome is guaranteed. Authority over official applications and decisions rests with the relevant government authorities. The content of this site is not personalised legal advice.">Boyer Global, ABD hükümetinin, ABD Dışişleri Bakanlığının, USCIS'in veya herhangi bir konsolosluğun resmi temsilcisi değildir. Sunulan hizmetler genel bilgilendirme ve idari destek kapsamındadır. Vize, oturum izni veya başvuru sonucu garanti edilmez. Resmi başvuru ve karar yetkisi ilgili devlet makamlarına aittir. Bu sitedeki içerikler kişiye özel hukuki görüş niteliğinde değildir.</span>
     </div>
   </div>
@@ -2652,27 +2836,9 @@ BG.passport = [
 
   /* ==== 14. SSS → ARAMA MOTORU VERİSİ (FAQPage) ======================
      index.html'deki #sss sorularından otomatik üretilir; ayrıca düzenlemeyin. */
-  safe('faq-schema', function () {
-    var items = $$('#sss details');
-    if (!items.length) return;
-    var data = {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      'inLanguage': 'tr-TR',
-      'mainEntity': items.map(function (d) {
-        var q = d.querySelector('summary'), a = d.querySelector('.faq-a');
-        return {
-          '@type': 'Question',
-          'name': (q.__tr ? q.__tr.text : q.textContent).trim(),
-          'acceptedAnswer': { '@type': 'Answer', 'text': (a.__tr ? a.__tr.text : a.textContent).trim() }
-        };
-      })
-    };
-    var s = document.createElement('script');
-    s.type = 'application/ld+json';
-    s.textContent = JSON.stringify(data);
-    document.head.appendChild(s);
-  });
+  /* SSS yapısal verisi artık <head> içindeki JSON-LD'de sabit olarak yer alır
+     (JavaScript çalıştırmayan tarayıcılar ve yapay zekâ botları da görebilsin diye).
+     SSS'de bir soruyu değiştirirseniz oradaki FAQPage bölümünü de güncelleyin. */
 
   /* ==== 15. WHATSAPP + YIL ========================================== */
   safe('whatsapp', function () {
